@@ -1,12 +1,45 @@
 import { Router } from 'express';
+import { body,param } from 'express-validator';
 import { ActividadControllers } from '../controllers/ActividadController';
+import {handleInputErrors} from '../middleware/validation'
+import {validateActividadBody,validateIdActividad, validateIdActividadYaExiste,} from '../middleware/Actividad';
 
 const router = Router();
 
+// Obtener todas las actividades
 router.get('/', ActividadControllers.getActividadAll);
-router.get('/:id', ActividadControllers.getIdActividad);
-router.post('/', ActividadControllers.crearActividad);
-router.put('/:id', ActividadControllers.actualizarIdActividad);  
-router.delete('/:id', ActividadControllers.eliminarIdActividad);
+
+// Obtener una actividad por ID
+router.get('/:IdActividad',
+  validateIdActividad,
+  handleInputErrors,
+  ActividadControllers.getIdActividad
+);
+
+// Crear una actividad (nombre único)
+router.post(
+'/',
+  validateIdActividadYaExiste,
+  validateActividadBody,
+  handleInputErrors,
+  ActividadControllers.crearActividad
+);
+
+// Actualizar una actividad por ID (no se valida si el nombre ya existe)
+router.put(
+  '/:IdActividad',
+  validateIdActividad,
+  validateActividadBody,
+  handleInputErrors,
+  ActividadControllers.actualizarIdActividad
+);
+
+// Eliminar una actividad por ID
+router.delete(
+  '/:IdActividad',
+  validateIdActividad,
+  handleInputErrors,
+  ActividadControllers.eliminarIdActividad
+);
 
 export default router;

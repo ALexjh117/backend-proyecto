@@ -4,7 +4,7 @@ import { Asistencia } from './Asistencia';
 
 @Table({ 
   tableName: 'Actividad',
-  timestamps: false // Desactiva createdAt y updatedAt
+  timestamps: true // Desactiva createdAt y updatedAt
 })
 export class Actividad extends Model {
   @Column({ primaryKey: true, autoIncrement: true })
