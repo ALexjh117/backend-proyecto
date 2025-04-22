@@ -14,7 +14,7 @@ async function startServer() {
         console.log(colors.blue.bold('Base de datos y mdeolos sincronizados.'));
 
         server.listen(port, () =>{
-            console.log(`✅ El servidor se esta escuchando en el  puerto ${port}`)
+            console.log(`✅ El servidor se esta escuchando en el puerto, Busca en http://localhost:${port}`)
         })
 
       
