@@ -17,7 +17,7 @@ export class ActividadControllers {
   
         res.json(actividad); // Responder con el resultado de las actividades
       } catch (error) {
-        console.error(error); // Es buena idea logear el error para depurar
+        console.error(error); // logear el error para depurar
         res.status(500).json({ error: 'Hubo un error' }); // Responder con un error genérico
       }
     };
