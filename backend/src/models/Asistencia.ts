@@ -1,3 +1,5 @@
+
+
 import { Table, Column, Model, DataType, ForeignKey } from 'sequelize-typescript';
 import { Usuario } from './Usuario';
 import { Actividad } from './Actividad';

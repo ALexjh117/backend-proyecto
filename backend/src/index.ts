@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 async function startServer() {
     try {
         await db.authenticate(); 
-        console.log(colors.blue.bold('Conexión exitosa a la Base de datos echo por Alex'));
+        console.log(colors.blue.bold('Conexión exitosa a la Base de datos echo Buen trabajo !!'));
 
         await db.sync(); 
         console.log(colors.blue.bold('Base de datos y mdeolos sincronizados.'));

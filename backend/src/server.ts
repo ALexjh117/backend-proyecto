@@ -6,6 +6,7 @@ import ActividadRouter from './routes/ActividadRouter'
 import AlquilerElementosRouter from './routes/AlquilerElementosRouter';
 
 
+
 async function connectDB() {
     try {
         await db.authenticate(); 
@@ -13,7 +14,7 @@ async function connectDB() {
 
       
         try {
-            const [results, metadata] = await db.query('SELECT * FROM evento  ');
+            const [results, metadata] = await db.query('SELECT * FROM actividad  ');
             console.log('Datos de ejemplo:', results);
         } catch (error) {
             console.error('Error al ejecutar la consulta:', error);
@@ -31,7 +32,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use('/api/actividad', ActividadRouter);
 app.use('/api/alquilerelementos', AlquilerElementosRouter);
-
 
 
 
