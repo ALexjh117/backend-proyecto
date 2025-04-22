@@ -12,11 +12,7 @@ export class ActividadControllers {
           order: [
             ['createdAt', 'ASC'], // Ordenar por la fecha de creación
           ],
-          // Si quieres filtrar por algún parámetro de búsqueda, puedes hacerlo aquí.
-          // Ejemplo de filtro (si recibes un parámetro `nombre` en la consulta):
-          // where: {
-          //   NombreActi: req.query.nombre || '',
-          // },
+         
         });
   
         res.json(actividad); // Responder con el resultado de las actividades
