@@ -13,9 +13,11 @@ async function startServer() {
         await db.sync({ alter: true }); 
         console.log(colors.blue.bold('Base de datos y modelos sincronizados.'));
 
-        server.listen(port, () => {
-            console.log(`✅ El servidor se está escuchando en el puerto ${port}`);
-        });
+
+        server.listen(port, () =>{
+            console.log(`✅ El servidor se esta escuchando en el puerto, Busca en http://localhost:${port}`)
+        })
+
 
     } catch (error) {
         console.error('Error al conectar a la base de datos:', error);
