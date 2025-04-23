@@ -8,6 +8,7 @@ import RelusuarioFeedbackRouter from './routes/RelusuarioFeedbackRouter';
 import RolusuarioRouter from './routes/RolusuarioRouter'
 
 
+
 async function connectDB() {
     try {
         await db.authenticate(); 
@@ -15,7 +16,7 @@ async function connectDB() {
 
       
         try {
-            const [results, metadata] = await db.query('SELECT * FROM evento  ');
+            const [results, metadata] = await db.query('SELECT * FROM alquilerelementos ');
             console.log('Datos de ejemplo:', results);
         } catch (error) {
             console.error('Error al ejecutar la consulta:', error);
@@ -35,7 +36,6 @@ app.use('/api/actividad', ActividadRouter);
 app.use('/api/alquilerelementos', AlquilerElementosRouter);
 app.use('/api/relusuariofeedback', RelusuarioFeedbackRouter)
 app.use('/api/rolusuario', RolusuarioRouter)
-
 
 
 export default app;

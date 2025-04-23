@@ -2,39 +2,39 @@ import { Table, Column, Model, DataType, ForeignKey, HasMany } from 'sequelize-t
 import { Evento } from './Evento';
 import { Asistencia } from './Asistencia';
 
-@Table({ tableName: 'Actividad' })
+@Table({ 
+  tableName: 'Actividad',
+  timestamps: true // Desactiva createdAt y updatedAt
+})
 export class Actividad extends Model {
   @Column({ primaryKey: true, autoIncrement: true })
-  IdActividad!: number;
+  declare IdActividad: number;
 
   @Column({ type: DataType.STRING(150), allowNull: false })
-  NombreActi!: string;
+  declare NombreActi: string;
 
-  @Column({ type: DataType.DATEONLY, allowNull: false })
-  FechaInicio!: Date;
-
-  @Column({ type: DataType.DATEONLY, allowNull: false })
-  FechaFin!: Date;
-
-  @Column({ type: DataType.TIME, allowNull: false })
-  HoraFin!: string;
+  @Column({ type: DataType.DATE, allowNull: false })
+  declare FechaInicio: Date;
+  
+  @Column({ type: DataType.DATE, allowNull: false })
+  declare FechaFin: Date;
 
   @Column({ type: DataType.TIME, allowNull: false })
-  HoraInicio!: string;
+  declare HoraFin: string;
+
+  @Column({ type: DataType.TIME, allowNull: false })
+  declare HoraInicio: string;
 
   @Column({ type: DataType.STRING(50), allowNull: false })
-  TipoLudica!: string;
+  declare TipoLudica: string;
 
   @Column({ type: DataType.TEXT, allowNull: true })
-  Descripcion!: string;
+  declare Descripcion: string;
 
   @ForeignKey(() => Evento)
-  @Column({ type: DataType.INTEGER, allowNull: true })
-  IdEvento!: number;
+  @Column({ type: DataType.INTEGER, allowNull: false })
+  declare IdEvento: number;
 
   @HasMany(() => Asistencia)
-  asistencias!: Asistencia[];
+  declare asistencias: Asistencia[];
 }
-
-
-
