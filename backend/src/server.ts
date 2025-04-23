@@ -14,7 +14,7 @@ async function connectDB() {
 
       
         try {
-            const [results, metadata] = await db.query('SELECT * FROM actividad  ');
+            const [results, metadata] = await db.query('SELECT * FROM alquilerelementos ');
             console.log('Datos de ejemplo:', results);
         } catch (error) {
             console.error('Error al ejecutar la consulta:', error);

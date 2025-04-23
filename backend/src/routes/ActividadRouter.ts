@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { body,param } from 'express-validator';
-import { ActividadControllers } from '../controllers/ActividadController';
+import {ActividadControllers} from '../controllers/ActividadController';
 import {handleInputErrors} from '../middleware/validation'
 import {validateActividadBody,validateIdActividad, validateIdActividadYaExiste,} from '../middleware/Actividad';
 
