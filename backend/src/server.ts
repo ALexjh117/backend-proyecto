@@ -4,8 +4,13 @@ import morgan from 'morgan';
 import { db } from './config/db';
 import ActividadRouter from './routes/ActividadRouter'
 import AlquilerElementosRouter from './routes/AlquilerElementosRouter';
+
 import UsuarioRoute from './routes/UsuarioRoute';
 import GestionEventoRoute from './routes/GestionEventoRoute';
+import RelusuarioFeedbackRouter from './routes/RelusuarioFeedbackRouter';
+import RolusuarioRouter from './routes/RolusuarioRouter'
+
+
 
 
 async function connectDB() {
@@ -15,7 +20,7 @@ async function connectDB() {
 
       
         try {
-            const [results, metadata] = await db.query('SELECT * FROM evento  ');
+            const [results, metadata] = await db.query('SELECT * FROM alquilerelementos ');
             console.log('Datos de ejemplo:', results);
         } catch (error) {
             console.error('Error al ejecutar la consulta:', error);
@@ -33,9 +38,14 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use('/api/actividad', ActividadRouter);
 app.use('/api/alquilerelementos', AlquilerElementosRouter);
+
 app.use("/api/usuario", UsuarioRoute)
 app.use("/api/gestionevento", GestionEventoRoute)
 
+
+
+app.use('/api/relusuariofeedback', RelusuarioFeedbackRouter)
+app.use('/api/rolusuario', RolusuarioRouter)
 
 
 
