@@ -1,13 +1,34 @@
 import { Router } from "express";
-
 import { UsuarioController } from "../controllers/UsuarioController";
+import { handleInputErrors } from "../middleware/validation";
+import { validateUsuarioBody, validateUsuarioNoExiste, validateUsuarioId } from "../middleware/Usuario";
 
 const UsuarioRoute = Router()
 
 
-UsuarioRoute.get("/api/usuario/get/", UsuarioController.getAll)
-UsuarioRoute.post("/api/usuario/post/", UsuarioController.crearUsuario)
-UsuarioRoute.put("/api/usuario/put/", UsuarioController.actualizarUsuario)
-UsuarioRoute.delete("/api/usuario/delete/", UsuarioController.borrarUsuario)
+UsuarioRoute.get("/", handleInputErrors, UsuarioController.getAll)
+
+UsuarioRoute.get("/:id", 
+    validateUsuarioId,
+    handleInputErrors,
+    UsuarioController.getUsuarioId)
+
+UsuarioRoute.post("/", 
+    validateUsuarioNoExiste,
+    validateUsuarioBody,
+    handleInputErrors,
+    UsuarioController.crearUsuario)
+
+
+UsuarioRoute.put("/:id", 
+    validateUsuarioId,
+    validateUsuarioNoExiste, 
+    validateUsuarioBody,
+    UsuarioController.actualizarUsuarioId)
+
+UsuarioRoute.delete("/:id", 
+    validateUsuarioId,
+    handleInputErrors,
+    UsuarioController.borrarUsuarioId)
 
 export default UsuarioRoute

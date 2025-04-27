@@ -16,12 +16,12 @@ import RolusuarioRouter from './routes/RolusuarioRouter'
 async function connectDB() {
     try {
         await db.authenticate(); 
-        console.log(colors.blue.bold('Conexión exitosa a la Base de datos echo por Alex'));
+        console.log(colors.blue.bold('Conexión exitosa a la Base de datos hecho por Alex'));
 
       
         try {
-            const [results, metadata] = await db.query('SELECT * FROM alquilerelementos ');
-            console.log('Datos de ejemplo:', results);
+            const [results, metadata] = await db.query('SELECT * FROM Usuario LIMIT 5');
+            //console.log('Datos de ejemplo:', results);
         } catch (error) {
             console.error('Error al ejecutar la consulta:', error);
         }
