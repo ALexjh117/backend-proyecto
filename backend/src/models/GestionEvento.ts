@@ -1,6 +1,6 @@
 import { Table, Column, Model, DataType } from 'sequelize-typescript';
 
-@Table({ tableName: 'GestionEvento' })
+@Table({ tableName: 'GestionEvento', timestamps: true })
 export class GestionEvento extends Model {
   @Column({ primaryKey: true, autoIncrement: true })
   IdGestionE!: number;
