@@ -6,12 +6,12 @@ import { Feedback } from './Feedback';
 export class RelUsuarioFeedback extends Model {
   @ForeignKey(() => Usuario)
   @Column({ type: DataType.INTEGER, allowNull: false })
-  IdUsuario!: number;
+   declare IdUsuario: number;
 
   @ForeignKey(() => Feedback)
   @Column({ type: DataType.INTEGER, allowNull: false })
-  IdFeedback!: number;
+  declare IdFeedback: number;
 
   @Column({ type: DataType.DATEONLY, allowNull: true })
-  FechaRelUsuaFeed!: Date;
+  declare FechaRelUsuaFeed: Date;
 }
