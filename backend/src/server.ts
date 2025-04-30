@@ -9,6 +9,8 @@ import UsuarioRoute from './routes/UsuarioRoute';
 import GestionEventoRoute from './routes/GestionEventoRoute';
 import RelusuarioFeedbackRouter from './routes/RelusuarioFeedbackRouter';
 import RolusuarioRouter from './routes/RolusuarioRouter'
+import ConstanciaRouter from './routes/ConstanciaRouter';
+import ConsultaIARouter from './routes/ConsultaIARouter';
 
 
 
@@ -47,6 +49,9 @@ app.use("/api/gestionevento", GestionEventoRoute)
 app.use('/api/relusuariofeedback', RelusuarioFeedbackRouter)
 app.use('/api/rolusuario', RolusuarioRouter)
 
+
+app.use('/api/constancia', ConstanciaRouter)
+app.use('/api/consultaia', ConsultaIARouter)
 
 
 export default app;
