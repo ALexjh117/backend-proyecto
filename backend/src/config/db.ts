@@ -10,6 +10,8 @@ export const db = new Sequelize({
     host: process.env.DB_HOST as string,
     port: parseInt(process.env.DB_PORT as string, 10),
     dialect: 'mysql',
+    timezone: '-05:00',
+
     models: [__dirname + '/../models/**/*.ts' ], // carga automatica de modelos
     logging: false,
     pool: {
@@ -18,6 +20,9 @@ export const db = new Sequelize({
         acquire: 30000,
         idle: 10000,
     },
+    define: {
+        timestamps: true, //aqui es donde se habilita el manejo automatico de createdAt y upddateAt
+    }
 });
 
 

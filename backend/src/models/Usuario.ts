@@ -7,7 +7,7 @@ import { ConsultaIA } from './ConsultaIA';
 import { RelUsuarioEvento } from './RelUsuarioEvento';
 import { RelUsuarioFeedback } from './RelUsuarioFeedback';
 
-@Table({ tableName: 'Usuario' })
+@Table({ tableName: 'Usuario' , timestamps : true})
 export class Usuario extends Model {
   @Column({ primaryKey: true, autoIncrement: true })
   IdUsuario!: number;

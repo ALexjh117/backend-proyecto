@@ -2,19 +2,18 @@ import express from 'express';
 import colors from 'colors';
 import morgan from 'morgan';
 import { db } from './config/db';
-import ActividadRouter from './routes/ActividadRouter'
-import AlquilerElementosRouter from './routes/AlquilerElementosRouter';
-
+import PlanificacionEventoRouter from './routes/PlanificacionEventoRouter'
+import RelUsuarioEventoRouter from './routes/RelUsuarioEventoRouter'
 
 
 async function connectDB() {
     try {
         await db.authenticate(); 
-        console.log(colors.blue.bold('Conexión exitosa a la Base de datos echo por Alex'));
+        console.log(colors.blue.bold('Conexión exitosa a la Base de datos hecho por Miguel'));
 
       
         try {
-            const [results, metadata] = await db.query('SELECT * FROM actividad  ');
+            const [results, metadata] = await db.query('SELECT * FROM relusuarioevento  ');
             console.log('Datos de ejemplo:', results);
         } catch (error) {
             console.error('Error al ejecutar la consulta:', error);
@@ -30,9 +29,7 @@ connectDB();
 const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
-app.use('/api/actividad', ActividadRouter);
-app.use('/api/alquilerelementos', AlquilerElementosRouter);
-
-
+app.use('/api/planificacionevento', PlanificacionEventoRouter)
+app.use('/api/relusuarioevento', RelUsuarioEventoRouter)
 
 export default app;

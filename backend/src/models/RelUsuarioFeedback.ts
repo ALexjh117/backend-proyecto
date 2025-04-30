@@ -2,16 +2,16 @@ import { Table, Column, Model, ForeignKey, DataType } from 'sequelize-typescript
 import { Usuario } from './Usuario';
 import { Feedback } from './Feedback';
 
-@Table({ tableName: 'RelUsuarioFeedback' })
+@Table({ tableName: 'RelUsuarioFeedback', timestamps : true })
 export class RelUsuarioFeedback extends Model {
   @ForeignKey(() => Usuario)
   @Column({ type: DataType.INTEGER, allowNull: false })
-  IdUsuario!: number;
+   declare IdUsuario: number;
 
   @ForeignKey(() => Feedback)
   @Column({ type: DataType.INTEGER, allowNull: false })
-  IdFeedback!: number;
+  declare IdFeedback: number;
 
   @Column({ type: DataType.DATEONLY, allowNull: true })
-  FechaRelUsuaFeed!: Date;
+  declare FechaRelUsuaFeed: Date;
 }
